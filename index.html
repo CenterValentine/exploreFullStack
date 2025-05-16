@@ -5,55 +5,42 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<script type="text/jsx">
-
-    
-const app = document.getElementById('app');
-
-function createTitle(title) {
-    if (title) {
-        return title;
-    } else {
-        return 'Default Title';
-
-    }
-}
-
-function Header({title}) {
-    return (<h1>{title ? title : 'Default Title'}</h1>)
-}
-
-function HomePage() {
-    const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
-
-    const [likes, setLikes] = React.useState(0);
+    <script type="text/jsx">
+      const app = document.getElementById('app');
 
 
-    function handleClick() {
-        console.log("increment like count")
-        setLikes(likes + 1);
+
+      function Header({title}) {
+          return (<h1>{title ? title : 'Default Title'}</h1>)
       }
 
-    return (
-        <div> 
-            {/* Nesting the Header component */}
-            <Header title="Develop. Preview. Ship." />
-            <ul>
-                {names.map((name) => (
-                    <li key={name}>{name}</li>))}
-            </ul>
-            <button onClick={handleClick}>Like ({likes})</button>
+      function HomePage() {
+          const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
 
-        </div>
-    );
-}
+          const [likes, setLikes] = React.useState(0);
 
 
+          function handleClick() {
+              console.log("increment like count")
+              setLikes(likes + 1);
+            }
 
-const root = ReactDOM.createRoot(app);
-root.render(<HomePage/>);
-</script>
+          return (
+              <div>
+                  {/* Nesting the Header component */}
+                  <Header title="Develop. Preview. Ship." />
+                  <ul>
+                      {names.map((name) => (
+                          <li key={name}>{name}</li>))}
+                  </ul>
+                  <button onClick={handleClick}>Like ({likes})</button>
 
+              </div>
+          );
+      }
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage/>);
+    </script>
 
     <!-- Imperative programming: How to make a pizza -->
     <!-- <script type="text/javascript" >
@@ -68,6 +55,5 @@ root.render(<HomePage/>);
               app.appendChild(header);
 
     </script> -->
-
   </body>
 </html>
